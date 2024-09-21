@@ -4,7 +4,7 @@ Limit the speed at which players can switch between servers.
 ## Required
 - Java 17+
 - Velocity 3.3.0+
-- [Plugin|Lib] [MavenLoaderAPI 1.0.1+](https://github.com/LevelTranic/MavenLoader)
+- [Plugin|Lib] [MavenLoaderAPI 1.1-SNAPSHOT+](https://github.com/LevelTranic/MavenLoader)
 
 ## Config
 ```yaml
