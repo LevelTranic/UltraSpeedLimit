@@ -15,7 +15,6 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.util.GameProfile;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import one.tranic.mavenloader.api.MavenLibraryResolver;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
@@ -42,16 +41,6 @@ public class UltraSpeedLimit {
     public void onProxyInitialization(ProxyInitializeEvent event) {
         logger.info("Initializing UltraSpeedLimit");
         this.metrics = metricsFactory.make(this, 23413);
-        try {
-            MavenLibraryResolver loader = new MavenLibraryResolver();
-            loader.addRepository("https://jitpack.io", "jitpack");
-            loader.addDependency("com.github.Carleslc.Simple-YAML:Simple-Yaml:1.8.4");
-            loader.addDependency("com.github.Carleslc.Simple-YAML:Simple-Configuration:1.8.4");
-            loader.addDependency("com.github.ben-manes.caffeine:caffeine:3.1.8");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
         try {
             Config config = new Config(dataDirectory);
             Cache<UUID, Integer> playerCache = Caffeine.newBuilder()
